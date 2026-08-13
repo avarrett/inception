@@ -5,7 +5,7 @@ RUN apt update && apt install -y nginx openssl netcat-openbsd
 RUN mkdir -p /etc/nginx/ssl && openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 		-keyout /etc/nginx/ssl/inception.key \
 		-out /etc/nginx/ssl/inception.crt \
-		-subj "/C=CH/ST=Vaud/L=Renens/O=42/CN=Inception"
+		-subj "/C=CH/ST=Vaud/L=Renens/O=42/CN="${DOMAIN_NAME}"
 
 # Dans le cas ou nous avons qu'un seul site a faire tourner on peut se permettre d'ecraser le default
 # Il possede deja un lien symbolique qui nous evite de creer un config et set-up le lien avec /etc/nginx/site-enable/${config_correspondante}
