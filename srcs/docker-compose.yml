@@ -3,9 +3,7 @@ services:
     image: mariadb
     build: ./requirements/mariadb
     container_name: mariadb
-    environment:
-      - DB_USER=wpuser
-      - DB_NAME=wordpress
+    env_file: .env
     volumes:
       - mariadb_data:/var/lib/mysql
     secrets:
@@ -17,11 +15,7 @@ services:
   wordpress:
     build: ./requirements/wordpress
     container_name: wordpress
-    environment:
-      - DB_USER=wpuser
-      - DB_NAME=wordpress
-      - WP_ADM_USER=adm
-      - WP_ADM_EMAIL=avarrett@inception.42
+    env_file: .env
     secrets:
       - db_password
       - wp_admin_password
