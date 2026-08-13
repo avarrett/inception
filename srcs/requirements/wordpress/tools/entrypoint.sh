@@ -25,7 +25,7 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 		--allow-root
 
 	wp core install \
-		--url="https://192.168.64.6" \
+		--url="$DOMAIN_NAME" \
 		--title="Inception" \
 		--admin_user="${WP_ADM_USER}" \
 		--admin_password="${WP_ADM_PSWD}" \
