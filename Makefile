@@ -41,4 +41,4 @@ image:
 	@echo "Looking for images"
 	@docker compose $DC images
 
-.PHONY setup build up bl down logs image
+.PHONY: setup build up bl down logs image
