@@ -1,6 +1,6 @@
 NAME=inception
 
-DATA_DIR=$(HOME)/data 
+DATA_DIR=$$/data 
 
 DC=srcs/docker-compose.yml
 DB_DATA=$(DATA_DIR)/mariadb
