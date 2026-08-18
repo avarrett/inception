@@ -24,13 +24,34 @@ up:
 	@docker compose -f $(DC) up
 	@echo "Containers are up"
 
+up-d:
+	@echo "Construction of containers"
+	@docker compose -f $(DC) up -d
+	@echo "Containers are up"
+
 bl:
 	@echo "Building images and launch containers"
 	@docker compose -f $(DC) up --build
 
-down:
-	@echo "Removing containers and images"
+down-v: 
+	@echo "Stopping containers and removing volumes"
+	@docker compose -f $(DC) down -v
+	@echo "Containers and volumes are removed"
+
+down: clean
+
+re: fclean all
+
+clean:
+	@echo "Removing containers"
+	@docker compose -f $(DC) down
+	@echo "Containers stopped"
+
+fclean:
+	@echo "Removing containers, images, volumes, and data"
 	@docker compose -f $(DC) down -v --rmi all
+	@rm -rf $(DB_DATA)
+	@rm -rf $(WP_DATA)
 	@echo "Cleaning done"
   
 logs:
@@ -41,4 +62,7 @@ image:
 	@echo "Looking for images"
 	@docker compose -f $(DC) images
 
-.PHONY: setup build up bl down logs image
+ps:
+	@docker compose -f $(DC) ps
+
+.PHONY: setup build up up-d bl down down-v logs image clean fclean re ps
