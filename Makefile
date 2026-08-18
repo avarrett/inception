@@ -2,7 +2,7 @@ NAME=inception
 
 DATA_DIR=$(HOME)/data 
 
-DC=/srcs/docker-compose.yml
+DC=srcs/docker-compose.yml
 DB_DATA=$(DATA_DIR)/mariadb
 WP_DATA=$(DATA_DIR)/wordpress
 
