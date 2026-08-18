@@ -16,29 +16,29 @@ setup:
 
 build:
 	@echo "Building images with docker-compose"
-	@docker compose $(DC) build
+	@docker compose -f $(DC) build
 	@echo "Building done"
 
 up:
 	@echo "Construction of containers"
-	@docker compose $(DC) up
+	@docker compose -f $(DC) up
 	@echo "Containers are up"
 
 bl:
 	@echo "Building images and launch containers"
-	@docker compose $(DC) up --build
+	@docker compose -f $(DC) up --build
 
 down:
 	@echo "Removing containers and images"
-	@docker compose $(DC) down -v --rmi all
+	@docker compose -f $(DC) down -v --rmi all
 	@echo "Cleaning done"
   
 logs:
 	@echo "Looking for logs"
-	@docker compose $(DC) logs 
+	@docker compose -f $(DC) logs 
 
 image:
 	@echo "Looking for images"
-	@docker compose $(DC) images
+	@docker compose -f $(DC) images
 
 .PHONY: setup build up bl down logs image
