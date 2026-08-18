@@ -49,13 +49,13 @@ secrets:
 volumes:
   wordpress_data:
     driver: local
-    drivers_opts:
+    driver_opts:
       type: none
       o: bind
       device: ${HOME}/data/wordpress
   mariadb_data:
     driver: local
-    drivers_opts:
+    driver_opts:
       type: none
       o: bind
       device: ${HOME}/data/mariadb
