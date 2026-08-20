@@ -9,6 +9,7 @@ services:
     secrets:
       - db_password
       - db_root_password
+    restart: unless-stopped
     networks:
       - inception
 
@@ -23,6 +24,7 @@ services:
       - mariadb
     volumes:
       - wordpress_data:/var/www/html
+    restart: unless-stopped
     networks:
       - inception
     
@@ -35,6 +37,7 @@ services:
       - wordpress
     volumes:
       - wordpress_data:/var/www/html
+    restart: unless-stopped
     networks:
       - inception
 
