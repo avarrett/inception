@@ -14,6 +14,7 @@ services:
       - inception
 
   wordpress:
+    image: wordpress
     build: ./requirements/wordpress
     container_name: wordpress
     env_file: .env
@@ -29,6 +30,7 @@ services:
       - inception
     
   nginx:
+    image: nginx
     build: ./requirements/nginx
     container_name: nginx
     env_file: .env
