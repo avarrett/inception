@@ -1,6 +1,6 @@
 NAME=inception
 
-DATA_DIR=$(HOME)/data 
+DATA_DIR=$(HOME)/data
 
 DC=srcs/docker-compose.yml
 DB_DATA=$(DATA_DIR)/mariadb
@@ -50,8 +50,8 @@ clean:
 fclean:
 	@echo "Removing containers, images, volumes, and data"
 	@docker compose -f $(DC) down -v --rmi all
-	@rm -rf $(DB_DATA)
-	@rm -rf $(WP_DATA)
+	@sudo rm -rf $(DB_DATA)
+	@sudo rm -rf $(WP_DATA)
 	@echo "Cleaning done"
   
 logs:
